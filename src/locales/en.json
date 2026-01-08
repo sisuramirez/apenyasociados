@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "team": "Team",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Trusted Financial Auditing",
+    "subtitle": "Professional auditing and financial consulting solutions for businesses",
+    "cta": "Contact Us"
+  },
+  "lang": {
+    "es": "ESP",
+    "en": "ENG"
+  }
+}

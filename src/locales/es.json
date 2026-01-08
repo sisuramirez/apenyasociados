@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "team": "Equipo",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Auditoría Financiera de Confianza",
+    "subtitle": "Soluciones profesionales de auditoría y consultoría financiera para empresas",
+    "cta": "Contáctanos"
+  },
+  "lang": {
+    "es": "ESP",
+    "en": "ENG"
+  }
+}
