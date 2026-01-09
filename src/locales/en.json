@@ -135,5 +135,42 @@
         ]
       }
     }
+  },
+  "contact": {
+    "title": "Schedule an Appointment",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email Address",
+      "emailPlaceholder": "example@email.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+502 1234 5678",
+      "service": "Service of Interest",
+      "servicePlaceholder": "Select a service",
+      "date": "Preferred Date",
+      "time": "Preferred Time",
+      "submit": "Request an appointment"
+    },
+    "services": {
+      "audit": "Financial Audit",
+      "advisory": "Tax Advisory Services",
+      "consulting": "IFRS Consulting",
+      "humanCapital": "Human Capital Management",
+      "special": "Specialized Services"
+    }
+  },
+  "footer": {
+    "description": "Leading firm in auditing, consulting, and accounting. Committed to excellence and continuous improvement.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "contact": "Contact",
+    "address": "Guatemala City, Guatemala",
+    "copyright": "© {year} Apen y Asociados. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "credits": {
+      "prefix": "Designed and developed by",
+      "link": "Sisu"
+    }
   }
 }

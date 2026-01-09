@@ -73,69 +73,30 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Mobile & Tablet Layout (< 1024px): 3 Column Grid */}
-          <div className="grid grid-cols-3 items-center h-20 lg:hidden transition-all duration-300">
-            {/* Left: Logo */}
-            <div className="flex justify-start overflow-visible">
+          {/* Mobile & Tablet Layout (< 1024px): 2 Column - Logo Left, Hamburger Right */}
+          <div className="flex items-center justify-between h-20 lg:hidden transition-all duration-300">
+            {/* Left: Logo - Increased size for better mobile legibility */}
+            <div className="flex-shrink-0 overflow-visible">
               <Image
                 src={logoApen}
                 alt="Apen y Asociados"
-                className="h-8 tablet:h-16 w-auto max-w-none transition-all duration-300"
+                className="h-12 sm:h-14 tablet:h-16 w-auto max-w-none transition-all duration-300"
                 priority
               />
             </div>
 
-            {/* Center: Language Toggle */}
-            <div className="flex justify-center">
-              <div className="flex items-center space-x-2 ml-16 tablet:ml-0">
-                <span
-                  className={`text-xs font-medium transition-colors ${
-                    language === "es" ? "text-primary" : "text-gray-400"
-                  }`}
-                >
-                  {t.lang.es}
-                </span>
-                <button
-                  onClick={toggleLanguage}
-                  className="relative inline-flex h-5 w-9 items-center rounded-full bg-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  aria-label="Toggle language"
-                >
-                  <motion.span
-                    className="inline-block h-3 w-3 transform rounded-full bg-primary shadow-lg"
-                    animate={{
-                      x: language === "es" ? 3 : 21,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 30,
-                    }}
-                  />
-                </button>
-                <span
-                  className={`text-xs font-medium transition-colors ${
-                    language === "en" ? "text-primary" : "text-gray-400"
-                  }`}
-                >
-                  {t.lang.en}
-                </span>
-              </div>
-            </div>
-
-            {/* Right: Hamburger Menu Button */}
-            <div className="flex justify-end">
-              <button
-                onClick={toggleMobileMenu}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-                aria-label="Toggle menu"
-              >
-                {mobileMenuOpen ? (
-                  <X className="h-6 w-6 text-secondary" />
-                ) : (
-                  <Menu className="h-6 w-6 text-secondary" />
-                )}
-              </button>
-            </div>
+            {/* Right: Hamburger Menu Button - Added right margin for Android edge spacing */}
+            <button
+              onClick={toggleMobileMenu}
+              className="p-3 mr-1 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-7 w-7 text-secondary" />
+              ) : (
+                <Menu className="h-7 w-7 text-secondary" />
+              )}
+            </button>
           </div>
 
           {/* Desktop Layout (>= 1024px): Flexbox with Horizontal Links */}
@@ -165,16 +126,11 @@ export default function Navbar() {
 
             {/* Desktop: IECnet Logo + Language Toggle */}
             <div className="flex items-center gap-8 transition-all duration-300">
-              <div className="flex flex-col items-center justify-center">
-                <span className="text-[9px] text-black font-bold uppercase tracking-wide">
-                  {t.nav.membersOf}
-                </span>
-                <Image
-                  src={logoIec}
-                  alt="IECnet"
-                  className="h-20 w-auto max-w-none object-contain -mt-6 -mb-2 scale-x-125"
-                />
-              </div>
+              <Image
+                src={logoIec}
+                alt="IECnet"
+                className="h-[5rem] w-auto max-w-none object-contain"
+              />
               <LanguageToggle />
             </div>
           </div>
@@ -235,16 +191,51 @@ export default function Navbar() {
                   ))}
                 </nav>
 
-                {/* Mobile Menu Footer with IECnet Logo */}
-                <div className="px-6 py-8 border-t border-gray-200">
-                  <div className="flex flex-col items-center justify-center">
-                    <span className="text-[9px] text-black font-bold uppercase tracking-wide">
-                      {t.nav.membersOf}
-                    </span>
+                {/* Mobile Menu Footer with Language Switcher and IECnet Logo */}
+                <div className="px-6 py-6 border-t border-gray-200 space-y-6">
+                  {/* Language Switcher */}
+                  <div className="flex items-center justify-center">
+                    <div className="flex items-center space-x-3">
+                      <span
+                        className={`text-sm font-medium transition-colors ${
+                          language === "es" ? "text-primary" : "text-gray-400"
+                        }`}
+                      >
+                        {t.lang.es}
+                      </span>
+                      <button
+                        onClick={toggleLanguage}
+                        className="relative inline-flex h-6 w-11 items-center rounded-full bg-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        aria-label="Toggle language"
+                      >
+                        <motion.span
+                          className="inline-block h-4 w-4 transform rounded-full bg-primary shadow-lg"
+                          animate={{
+                            x: language === "es" ? 4 : 24,
+                          }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 500,
+                            damping: 30,
+                          }}
+                        />
+                      </button>
+                      <span
+                        className={`text-sm font-medium transition-colors ${
+                          language === "en" ? "text-primary" : "text-gray-400"
+                        }`}
+                      >
+                        {t.lang.en}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* IECnet Logo */}
+                  <div className="flex justify-center">
                     <Image
                       src={logoIec}
                       alt="IECnet"
-                      className="h-24 w-auto max-w-none object-contain -mt-2"
+                      className="h-16 w-auto max-w-none object-contain"
                     />
                   </div>
                 </div>

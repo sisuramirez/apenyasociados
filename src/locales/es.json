@@ -135,5 +135,42 @@
         ]
       }
     }
+  },
+  "contact": {
+    "title": "Solicitar una Cita",
+    "form": {
+      "name": "Nombre Completo",
+      "namePlaceholder": "Ingrese su nombre",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "ejemplo@correo.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+502 1234 5678",
+      "service": "Servicio de Interés",
+      "servicePlaceholder": "Seleccione un servicio",
+      "date": "Fecha Preferida",
+      "time": "Hora Preferida",
+      "submit": "Solicitar una cita"
+    },
+    "services": {
+      "audit": "Auditoría Financiera",
+      "advisory": "Asesoría Fiscal y Tributaria",
+      "consulting": "Consultoría NIIF",
+      "humanCapital": "Gestión de Talento Humano",
+      "special": "Servicios Especializados"
+    }
+  },
+  "footer": {
+    "description": "Firma líder en auditoría, consultoría y contabilidad. Comprometidos con la excelencia y la mejora continua.",
+    "navigation": "Navegación",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "address": "Ciudad de Guatemala, Guatemala",
+    "copyright": "© {year} Apen y Asociados. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos y Condiciones",
+    "credits": {
+      "prefix": "Diseñado y desarrollado por",
+      "link": "Sisu"
+    }
   }
 }

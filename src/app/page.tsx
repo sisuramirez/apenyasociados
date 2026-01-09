@@ -5,6 +5,9 @@ import PhilosophySection from "@/components/PhilosophySection";
 import InternationalSection from "@/components/InternationalSection";
 import TeamSection from "@/components/TeamSection";
 import ServicesSection from "@/components/ServicesSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function Home() {
   return (
@@ -16,6 +19,9 @@ export default function Home() {
       <InternationalSection />
       <TeamSection />
       <ServicesSection />
+      <ContactSection />
+      <Footer />
+      <FloatingWhatsApp />
     </main>
   );
 }
