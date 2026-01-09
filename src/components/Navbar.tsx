@@ -29,6 +29,7 @@ export default function Navbar() {
     { key: "about", label: t.nav.about },
     { key: "team", label: t.nav.team },
     { key: "services", label: t.nav.services },
+    { key: "blog", label: t.nav.blog },
     { key: "contact", label: t.nav.contact },
   ];
 

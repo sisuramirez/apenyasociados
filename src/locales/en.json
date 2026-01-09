@@ -5,6 +5,7 @@
     "team": "Team",
     "services": "Services",
     "contact": "Contact",
+    "blog": "Blog",
     "membersOf": "members of:"
   },
   "hero": {
@@ -15,5 +16,124 @@
   "lang": {
     "es": "ESP",
     "en": "ENG"
+  },
+  "about": {
+    "title": "Who we are",
+    "description": "Apen & Asociados, Auditors and Consultants, is a leading firm in audit, consulting, and accounting services. We distinguish ourselves through our commitment to excellence and continuous improvement, offering specialized solutions tailored to our clients' needs.",
+    "cta": "Let's Meet"
+  },
+  "philosophy": {
+    "title": "Business Philosophy",
+    "mision": {
+      "title": "Mission",
+      "text": "To direct our efforts, experience, and professional knowledge towards our clients, helping them become more competitive and profitable, and continuously improving their development in the global business market."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "To direct our efforts, experience, and professional knowledge towards our clients, helping them become more competitive and profitable, and continuously improving their development in the global business market. To provide high-quality and prestigious professional services that satisfy and exceed the needs and expectations of our clients, creating an integral level of development for our clients and for each member of our professional team."
+    },
+    "valores": {
+      "title": "Values",
+      "items": ["Integrity", "Trust", "Objectivity", "Competence", "Confidentiality"]
+    }
+  },
+  "international": {
+    "title": "International Representation",
+    "p1": "Apen & Asociados, Auditors and Consultants is part of the IECnet network of Firms based in France.",
+    "p2": "IECnet is a global network of accounting, auditing and tax consulting firms, with more than 70 selected member firms located in 60 countries and on 5 continents, 30 languages, more than 2,000 employees and 400 partners. IECnet is evolving with the global business in mind. Each member firm is a separate, qualified legal entity operating under the laws and regulations of its own country.",
+    "p3": "IECnet ranked 30th in the International Accounting Bulletin World Survey 2024 with a turnover of 200 million dollars and has been a member of the Forum of Firms since 2009. The Forum of Firms (FoF) is an independent association of international networks of firms that perform transnational audits. The objective of the Forum is to promote consistent and high-quality standards of financial reporting and auditing practices worldwide, bringing together firms that perform transnational audits and involving them more closely with the activities of the International Federation of Accountants (IFAC) in auditing and other assurance-related areas.",
+    "linkUrl": "https://iecnet.net",
+    "visitLabel": "visit iec net",
+    "buttonText": "Visit https://iecnet.net"
+  },
+  "services": {
+    "title": "Our Services",
+    "flipHint": "Click to see more",
+    "auditoria": {
+      "title": "Audit",
+      "description": "Creating clear strategies to ensure the transparency and reliability of your financial information.",
+      "items": [
+        "Financial",
+        "Tax",
+        "Operational",
+        "Management",
+        "Compliance",
+        "Forensic"
+      ]
+    },
+    "asesoria": {
+      "title": "Advisory",
+      "description": "We provide expert guidance to optimize your business and tax decisions.",
+      "items": [
+        "Tax Advisory",
+        "Risk Management",
+        "Financial Planning",
+        "Regulatory Compliance",
+        "Corporate Structuring"
+      ]
+    },
+    "consultoria": {
+      "title": "Consulting",
+      "description": "We optimize processes and structures to improve your organization's efficiency.",
+      "items": [
+        "Full IFRS",
+        "IFRS for SMEs",
+        "Due Diligence",
+        "Business Valuation",
+        "Financial Restructuring"
+      ]
+    },
+    "talento": {
+      "title": "Human Capital",
+      "description": "We integrate technologies and strategies to enhance your company's human capital.",
+      "items": [
+        "Recruitment & Selection",
+        "Payroll Management",
+        "Performance Evaluation",
+        "Organizational Development"
+      ]
+    },
+    "especiales": {
+      "title": "Special Services",
+      "description": "We identify and mitigate specific risks with customized solutions.",
+      "items": [
+        "IFRS Training",
+        "Anti-Money Laundering",
+        "Internal Control",
+        "Corporate Governance",
+        "IT Audit"
+      ]
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "viewProfile": "View Profile",
+    "closeProfile": "Close",
+    "accreditations": "Accreditations",
+    "experience": "Experience",
+    "members": {
+      "marlon": {
+        "name": "Marlon Apen Fernández",
+        "role": "Managing Partner",
+        "bio": "Certified Public Accountant and Auditor (USAC) with a Master's degree in Business Administration and Management (UNIR México). University professor and trainer in auditing, accounting, and finance.",
+        "credentials": [
+          "External Auditor SIB (AES-42-FD-1)",
+          "Mi Coope System Auditor (027-2025)",
+          "IGCPA No. 3456",
+          "Licensed CPA No. 6011"
+        ]
+      },
+      "rocio": {
+        "name": "Rocío Solís",
+        "role": "Administrator",
+        "bio": "Business Administrator specializing in service engineering, quality control, and operations management. Postgraduate degree in Human Resources Management.",
+        "credentials": [
+          "Labor and commercial law",
+          "Human talent management",
+          "Collections and portfolio recovery",
+          "Process and policy design"
+        ]
+      }
+    }
   }
 }

@@ -5,6 +5,7 @@
     "team": "Equipo",
     "services": "Servicios",
     "contact": "Contacto",
+    "blog": "Blog",
     "membersOf": "miembros de:"
   },
   "hero": {
@@ -15,5 +16,124 @@
   "lang": {
     "es": "ESP",
     "en": "ENG"
+  },
+  "about": {
+    "title": "Quiénes somos",
+    "description": "Apen & Asociados, Auditores y Consultores, es una firma líder en servicios de auditoría, consultoría y contabilidad. Nos distinguimos por nuestro compromiso con la excelencia y la mejora continua, ofreciendo soluciones especializadas que se ajustan a las necesidades de nuestros clientes.",
+    "cta": "Reunámonos"
+  },
+  "philosophy": {
+    "title": "Filosofía Empresarial",
+    "mision": {
+      "title": "Misión",
+      "text": "Dirigir nuestros esfuerzos, experiencia y conocimientos profesionales hacia nuestros clientes ayudándolos a ser más competitivos, rentables y mejorando continuamente su desarrollo en el mercado global de negocios."
+    },
+    "vision": {
+      "title": "Visión",
+      "text": "Dirigir nuestros esfuerzos, experiencia y conocimientos profesionales hacia nuestros clientes ayudándolos a ser más competitivos, rentables y mejorando continuamente su desarrollo en el mercado global de negocios. Proveer servicios profesionales de alta calidad y prestigio, que satisfaga y exceda las necesidades y expectativas de nuestros clientes, creando un nivel de desarrollo integral para nuestros clientes y para cada miembro de nuestro equipo de profesionales."
+    },
+    "valores": {
+      "title": "Valores",
+      "items": ["Integridad", "Confianza", "Objetividad", "Competencia", "Confidencialidad"]
+    }
+  },
+  "international": {
+    "title": "Representación Internacional",
+    "p1": "Apen & Asociados, Auditores y Consultores forma parte de la red de Firmas de IECnet con sede en Francia.",
+    "p2": "IECnet es una red global de Firmas de contabilidad, auditores y consultores fiscales, con más de 70 empresas miembros seleccionadas ubicadas en 60 países y en 5 continentes, 30 idiomas, más de 2,000 empleados y 400 socios, IECnet está evolucionando con el negocio global en mente. Cada firma miembro es una entidad legal separada, calificada y que opera bajo las leyes y regulaciones de su propio país.",
+    "p3": "IECnet ocupó el puesto 30 en la Encuesta Mundial del Boletín Internacional de Contabilidad 2024 con una facturación de 200 millones de dólares y es miembro del Foro de Firmas desde 2009. El Foro de Firmas (FoF) es una asociación independiente de redes internacionales de empresas que realizan auditorías transnacionales. El objetivo del Foro es promover normas coherentes y de alta calidad de las prácticas de información financiera y auditoría en todo el mundo, reuniendo a empresas que realizan auditorías transnacionales e involucrándolas más estrechamente con las actividades de la Federación Internacional de Contadores (IFAC) en materia de auditoría y otras áreas relacionadas con la garantía.",
+    "linkUrl": "https://iecnet.net",
+    "visitLabel": "visita iec net",
+    "buttonText": "Visitar https://iecnet.net"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "flipHint": "Clic para ver más",
+    "auditoria": {
+      "title": "Auditoría",
+      "description": "Creando estrategias claras para garantizar la transparencia y confiabilidad de su información financiera.",
+      "items": [
+        "Financiera",
+        "Fiscal",
+        "Operativa",
+        "De Gestión",
+        "De Cumplimiento",
+        "Forense"
+      ]
+    },
+    "asesoria": {
+      "title": "Asesoría",
+      "description": "Proporcionamos orientación experta para optimizar sus decisiones empresariales y fiscales.",
+      "items": [
+        "Fiscal y Tributaria",
+        "Gestión de Riesgos",
+        "Planificación Financiera",
+        "Cumplimiento Normativo",
+        "Estructuración Corporativa"
+      ]
+    },
+    "consultoria": {
+      "title": "Consultoría",
+      "description": "Optimizamos procesos y estructuras para mejorar la eficiencia de su organización.",
+      "items": [
+        "NIIF Plenas",
+        "NIIF para Pymes",
+        "Due Diligence",
+        "Valoración de Empresas",
+        "Reestructuración Financiera"
+      ]
+    },
+    "talento": {
+      "title": "Talento Humano",
+      "description": "Integramos tecnologías y estrategias para potenciar el capital humano de su empresa.",
+      "items": [
+        "Reclutamiento y Selección",
+        "Gestión de Planillas",
+        "Evaluación de Desempeño",
+        "Desarrollo Organizacional"
+      ]
+    },
+    "especiales": {
+      "title": "Servicios Especiales",
+      "description": "Identificamos y mitigamos riesgos específicos con soluciones personalizadas.",
+      "items": [
+        "Capacitaciones NIIF",
+        "Prevención de Lavado de Dinero",
+        "Control Interno",
+        "Gobierno Corporativo",
+        "Auditoría de Sistemas"
+      ]
+    }
+  },
+  "team": {
+    "title": "Nuestro Equipo",
+    "viewProfile": "Ver Trayectoria",
+    "closeProfile": "Cerrar",
+    "accreditations": "Acreditaciones",
+    "experience": "Experiencia",
+    "members": {
+      "marlon": {
+        "name": "Marlon Apen Fernández",
+        "role": "Socio Director",
+        "bio": "Contador Público y Auditor (USAC) con Maestría en Administración y Dirección de Empresas (UNIR México). Profesor universitario y capacitador en auditoría, contabilidad y finanzas.",
+        "credentials": [
+          "Auditor Externo SIB (AES-42-FD-1)",
+          "Auditor Sistema Mi Coope (027-2025)",
+          "IGCPA No. 3456",
+          "CPA Colegiado No. 6011"
+        ]
+      },
+      "rocio": {
+        "name": "Rocío Solís",
+        "role": "Administradora",
+        "bio": "Administradora de Empresas con especialización en ingeniería de servicios, control de calidad y administración de operaciones. Postgrado en Maestría de Recursos Humanos.",
+        "credentials": [
+          "Leyes laborales y mercantiles",
+          "Gestión de talento humano",
+          "Gestión de cobros y recuperación de cartera",
+          "Diseño de procesos y políticas"
+        ]
+      }
+    }
   }
 }
