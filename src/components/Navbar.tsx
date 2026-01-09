@@ -5,6 +5,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import logoApen from "@/assets/Logo-Apen-y-Asociadoss.png";
+import logoIec from "@/assets/iec-net.png";
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
@@ -75,10 +77,8 @@ export default function Navbar() {
             {/* Left: Logo */}
             <div className="flex justify-start overflow-visible">
               <Image
-                src="/assets/Logo-Apen-y-Asociadoss.png"
+                src={logoApen}
                 alt="Apen y Asociados"
-                width={180}
-                height={64}
                 className="h-8 tablet:h-16 w-auto max-w-none transition-all duration-300"
                 priority
               />
@@ -142,10 +142,8 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Image
-                src="/assets/Logo-Apen-y-Asociadoss.png"
+                src={logoApen}
                 alt="Apen y Asociados"
-                width={180}
-                height={64}
                 className="h-16 w-auto transition-all duration-300"
                 priority
               />
@@ -165,14 +163,17 @@ export default function Navbar() {
             </div>
 
             {/* Desktop: IECnet Logo + Language Toggle */}
-            <div className="flex items-center space-x-4 transition-all duration-300">
-              <Image
-                src="/assets/iec-net.png"
-                alt="IECnet"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
+            <div className="flex items-center gap-8 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-[9px] text-black font-bold uppercase tracking-wide">
+                  {t.nav.membersOf}
+                </span>
+                <Image
+                  src={logoIec}
+                  alt="IECnet"
+                  className="h-20 w-auto max-w-none object-contain -mt-6 -mb-2 scale-x-125"
+                />
+              </div>
               <LanguageToggle />
             </div>
           </div>
@@ -234,14 +235,15 @@ export default function Navbar() {
                 </nav>
 
                 {/* Mobile Menu Footer with IECnet Logo */}
-                <div className="px-6 py-6 border-t border-gray-200">
-                  <div className="flex justify-center">
+                <div className="px-6 py-8 border-t border-gray-200">
+                  <div className="flex flex-col items-center justify-center">
+                    <span className="text-[9px] text-black font-bold uppercase tracking-wide">
+                      {t.nav.membersOf}
+                    </span>
                     <Image
-                      src="/assets/iec-net.png"
+                      src={logoIec}
                       alt="IECnet"
-                      width={120}
-                      height={40}
-                      className="h-10 w-auto"
+                      className="h-24 w-auto max-w-none object-contain -mt-2"
                     />
                   </div>
                 </div>

@@ -1,28 +1,89 @@
 # Setup Notes
 
-## Required Assets
+## Asset Management System
 
-### Video Poster Image
-**Location**: `/public/assets/video-poster.webp`
+### ✅ Implemented (Professional Asset Management)
 
-The Hero component now includes a `poster` attribute for the background video to improve mobile loading experience. You need to add a poster image:
+**Directory Structure:**
+```
+src/assets/           # Imported images (cache-busted automatically)
+├── Logo-Apen-y-Asociadoss.png
+└── iec-net.png
 
-1. **Extract a frame** from `animated-people.webm` at an appealing moment
-2. **Convert to WebP format** (recommended for performance)
-3. **Save as**: `public/assets/video-poster.webp`
-
-**Recommended dimensions**: 1920x1080px (Full HD)
-
-**Alternative**: You can also use JPG format and update the poster path in `src/components/Hero.tsx:20` to `/assets/video-poster.jpg`
-
-### How to extract a frame from video:
-```bash
-# Using ffmpeg (if installed)
-ffmpeg -i public/assets/animated-people.webm -ss 00:00:02 -vframes 1 -q:v 2 public/assets/video-poster.webp
+public/assets/        # Public assets (manual versioning)
+├── animated-people.webm (versioned: ?v=1.0.0)
+└── video-poster.webp (⚠️ NEEDS TO BE CREATED)
 ```
 
-## Current Assets
-- ✅ `Logo-Apen-y-Asociadoss.png` - Main company logo
-- ✅ `iec-net.png` - IECnet partner logo
-- ✅ `animated-people.webm` - Hero background video
-- ⚠️ `video-poster.webp` - **NEEDS TO BE ADDED**
+**Benefits:**
+- ✅ Automatic cache busting for images via content hashes
+- ✅ Build-time optimization
+- ✅ TypeScript type safety
+- ✅ No manual width/height needed
+- ✅ Manual versioning for videos via query strings
+
+**See:** `ASSET_MANAGEMENT_SYSTEM.md` for complete documentation.
+
+---
+
+## ⚠️ Required Action: Video Poster Image
+
+**Location**: `/public/assets/video-poster.webp`
+
+The Hero component uses a `poster` attribute (with versioning) for the background video to improve mobile loading experience. You need to create this poster image:
+
+### Option 1: Extract from Video (Recommended)
+```bash
+# Using ffmpeg
+ffmpeg -i public/assets/animated-people.webm \
+  -ss 00:00:02 \
+  -vframes 1 \
+  -q:v 2 \
+  public/assets/video-poster.webp
+```
+
+### Option 2: Manual Screenshot
+1. Open `animated-people.webm` in browser/player
+2. Pause at appealing frame (2-3 seconds in)
+3. Take screenshot
+4. Convert to WebP format
+5. Save as `public/assets/video-poster.webp`
+
+### Option 3: Use Existing Image
+```bash
+cp path/to/your/image.jpg public/assets/video-poster.webp
+```
+
+**Recommended Dimensions:** 1920x1080px (Full HD)
+
+**Current Status:** Hero.tsx references `video-poster.webp?v=1.0.0` but file doesn't exist yet.
+
+---
+
+## Current Assets Status
+
+### Imported Assets (src/assets/)
+- ✅ `Logo-Apen-y-Asociadoss.png` - Main logo (imported in Navbar.tsx)
+- ✅ `iec-net.png` - IECnet partner logo (imported in Navbar.tsx)
+
+### Public Assets (public/assets/)
+- ✅ `animated-people.webm` - Hero background video (versioned: ?v=1.0.0)
+- ⚠️ `video-poster.webp` - **NEEDS TO BE CREATED**
+
+---
+
+## Version Management
+
+### For Images (Automatic)
+Images in `src/assets/` are automatically cache-busted via content hashes.
+No manual intervention needed! Just update the file and rebuild.
+
+### For Videos (Manual)
+Update version query string in `src/components/Hero.tsx`:
+```tsx
+// Current
+<source src="/assets/animated-people.webm?v=1.0.0" />
+
+// After updating video
+<source src="/assets/animated-people.webm?v=1.0.1" />
+```

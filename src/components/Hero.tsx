@@ -4,6 +4,7 @@ import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import videoPoster from "@/assets/video-poster.webp";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -17,10 +18,10 @@ export default function Hero() {
           loop
           muted
           playsInline
-          poster="/assets/video-poster.webp"
+          poster={videoPoster.src}
           className="w-full h-full object-cover"
         >
-          <source src="/assets/animated-people.webm" type="video/webm" />
+          <source src="/assets/animated-people.webm?v=1.0.0" type="video/webm" />
         </video>
 
         {/* Dark Teal Overlay */}
