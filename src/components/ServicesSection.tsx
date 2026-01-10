@@ -54,7 +54,7 @@ function FlipCard({ service, t }: FlipCardProps) {
 
   return (
     <motion.div
-      className="w-[320px] h-[480px] cursor-pointer"
+      className="w-full sm:w-[380px] h-[500px] cursor-pointer"
       style={{ perspective: "1000px" }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ function FlipCard({ service, t }: FlipCardProps) {
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="flex flex-col items-center pt-2">
-            <div className="w-40 h-40 mb-4 relative">
+            <div className="w-48 h-48 mb-4 relative">
               <Image
                 src={service.image}
                 alt={serviceData.title}
