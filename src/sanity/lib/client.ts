@@ -47,33 +47,71 @@ export async function safeFetch<T>(query: string, params?: Record<string, string
   }
 }
 
-// GROQ Queries
+// =============================================================================
+// GROQ Queries - Internationalized
+// =============================================================================
+
+// Posts list query - includes both language versions
 export const postsQuery = `*[_type == "post"] | order(publishedAt desc) {
   _id,
   title,
+  "title_en": title_en,
   slug,
   mainImage,
   excerpt,
+  "excerpt_en": excerpt_en,
   publishedAt
 }`;
 
+// Single post query - includes both language versions
 export const postQuery = `*[_type == "post" && slug.current == $slug][0] {
   _id,
   title,
+  "title_en": title_en,
   slug,
   mainImage,
   body,
+  "body_en": body_en,
+  excerpt,
+  "excerpt_en": excerpt_en,
   publishedAt
 }`;
 
+// Post slugs for static generation
 export const postSlugsQuery = `*[_type == "post" && defined(slug.current)][].slug.current`;
 
-// Query for recent posts (limited to 3 for homepage)
+// Recent posts for homepage (limited to 3)
 export const recentPostsQuery = `*[_type == "post"] | order(publishedAt desc)[0...3] {
   _id,
   title,
+  "title_en": title_en,
   slug,
   mainImage,
   excerpt,
+  "excerpt_en": excerpt_en,
   publishedAt
+}`;
+
+// Services query - includes both language versions
+export const servicesQuery = `*[_type == "service"] | order(order asc) {
+  _id,
+  title,
+  "title_en": title_en,
+  slug,
+  icon,
+  description,
+  "description_en": description_en
+}`;
+
+// Single service query
+export const serviceQuery = `*[_type == "service" && slug.current == $slug][0] {
+  _id,
+  title,
+  "title_en": title_en,
+  slug,
+  icon,
+  description,
+  "description_en": description_en,
+  content,
+  "content_en": content_en
 }`;

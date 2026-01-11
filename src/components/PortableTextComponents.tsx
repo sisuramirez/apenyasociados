@@ -81,11 +81,14 @@ export const portableTextComponents: PortableTextComponents = {
     underline: ({ children }) => <u className="underline">{children}</u>,
   },
   block: {
+    h1: ({ children }) => (
+      <h1 className="text-3xl lg:text-4xl font-bold text-[#17383F] mt-10 mb-6">{children}</h1>
+    ),
     h2: ({ children }) => (
-      <h2 className="text-2xl font-bold text-[#17383F] mt-8 mb-4">{children}</h2>
+      <h2 className="text-2xl lg:text-3xl font-bold text-[#17383F] mt-8 mb-4">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl font-bold text-[#17383F] mt-6 mb-3">{children}</h3>
+      <h3 className="text-xl lg:text-2xl font-semibold text-[#17383F] mt-6 mb-3">{children}</h3>
     ),
     h4: ({ children }) => (
       <h4 className="text-lg font-semibold text-[#17383F] mt-4 mb-2">
@@ -93,10 +96,10 @@ export const portableTextComponents: PortableTextComponents = {
       </h4>
     ),
     normal: ({ children }) => (
-      <p className="text-gray-700 leading-relaxed mb-4">{children}</p>
+      <p className="text-gray-700 leading-relaxed mb-5 text-base lg:text-lg">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-[#12ACA4] pl-4 my-6 italic text-gray-600">
+      <blockquote className="border-l-4 border-[#12ACA4] pl-6 my-8 italic text-gray-600 bg-gray-50 py-4 pr-4 rounded-r-lg">
         {children}
       </blockquote>
     ),

@@ -1,43 +1,79 @@
 /**
- * Sanity Schema for Blog Posts
+ * Sanity Schema for Blog Posts - Apen & Asociados
  *
- * IMPORTANT: Copy these schemas to your Sanity Studio project's schemas folder.
- * This file serves as both documentation and a reference implementation.
- *
- * To use in Sanity Studio:
- * 1. Create a new Sanity project: npx sanity@latest init
- * 2. Copy the 'post' and 'blockContent' schemas to your studio's schemas folder
- * 3. Import them in your schema index file
+ * Internationalized schema with Spanish (primary) and English fields.
+ * Financial Auditing and Consulting insights.
  */
 
 // =============================================================================
-// POST SCHEMA - Main blog post document
+// POST SCHEMA - Internationalized Blog Post document
 // =============================================================================
 export const post = {
   name: "post",
   title: "Blog Post",
   type: "document",
+  groups: [
+    { name: "spanish", title: "Español (ES)", default: true },
+    { name: "english", title: "English (EN)" },
+    { name: "media", title: "Media" },
+    { name: "settings", title: "Settings" },
+  ],
   fields: [
+    // === SPANISH CONTENT ===
     {
       name: "title",
-      title: "Title",
+      title: "Título (ES)",
       type: "string",
+      group: "spanish",
+      description: "Título del artículo en español",
       validation: (Rule: { required: () => unknown }) => Rule.required(),
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-      validation: (Rule: { required: () => unknown }) => Rule.required(),
+      name: "excerpt",
+      title: "Resumen (ES)",
+      type: "text",
+      rows: 3,
+      group: "spanish",
+      description: "Breve descripción para la vista previa del blog",
     },
+    {
+      name: "body",
+      title: "Contenido (ES)",
+      type: "blockContent",
+      group: "spanish",
+      description: "Contenido principal del artículo en español",
+    },
+
+    // === ENGLISH CONTENT ===
+    {
+      name: "title_en",
+      title: "Title (EN)",
+      type: "string",
+      group: "english",
+      description: "Article title in English",
+    },
+    {
+      name: "excerpt_en",
+      title: "Excerpt (EN)",
+      type: "text",
+      rows: 3,
+      group: "english",
+      description: "Brief description for blog list preview in English",
+    },
+    {
+      name: "body_en",
+      title: "Content (EN)",
+      type: "blockContent",
+      group: "english",
+      description: "Main article content in English",
+    },
+
+    // === MEDIA ===
     {
       name: "mainImage",
       title: "Main Image",
       type: "image",
+      group: "media",
       options: {
         hotspot: true,
       },
@@ -45,38 +81,48 @@ export const post = {
         {
           name: "alt",
           type: "string",
-          title: "Alternative Text",
+          title: "Alternative Text (ES)",
+          description: "Texto alternativo para accesibilidad",
+        },
+        {
+          name: "alt_en",
+          type: "string",
+          title: "Alternative Text (EN)",
+          description: "Alternative text for accessibility",
         },
       ],
+    },
+
+    // === SETTINGS ===
+    {
+      name: "slug",
+      title: "Slug (URL)",
+      type: "slug",
+      group: "settings",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+      validation: (Rule: { required: () => unknown }) => Rule.required(),
     },
     {
       name: "publishedAt",
       title: "Published At",
       type: "datetime",
-    },
-    {
-      name: "excerpt",
-      title: "Excerpt",
-      type: "text",
-      rows: 3,
-      description: "Brief description for blog list preview",
-    },
-    {
-      name: "body",
-      title: "Body",
-      type: "blockContent",
+      group: "settings",
     },
   ],
   preview: {
     select: {
       title: "title",
+      subtitle: "title_en",
       media: "mainImage",
     },
   },
 };
 
 // =============================================================================
-// BLOCK CONTENT SCHEMA - Rich text with custom image alignment (Word-like)
+// BLOCK CONTENT SCHEMA - Rich text with custom image alignment
 // =============================================================================
 export const blockContent = {
   name: "blockContent",
@@ -88,6 +134,7 @@ export const blockContent = {
       type: "block",
       styles: [
         { title: "Normal", value: "normal" },
+        { title: "H1", value: "h1" },
         { title: "H2", value: "h2" },
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
@@ -125,7 +172,7 @@ export const blockContent = {
         ],
       },
     },
-    // CUSTOM IMAGE BLOCK with Alignment - THE "WORD-LIKE" EXPERIENCE
+    // CUSTOM IMAGE BLOCK with Alignment
     {
       type: "image",
       options: {
@@ -142,7 +189,7 @@ export const blockContent = {
           name: "alignment",
           type: "string",
           title: "Alignment",
-          description: "Position the image like in Word",
+          description: "Position the image",
           options: {
             list: [
               { title: "Left (text wraps right)", value: "left" },
