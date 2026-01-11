@@ -173,7 +173,7 @@ export default function TeamSection() {
 
   return (
     <>
-      <section className="py-20 bg-slate-50">
+      <section id="equipo" className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             className="text-3xl lg:text-4xl font-bold text-[#17383F] text-center mb-16"

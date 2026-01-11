@@ -25,12 +25,12 @@ export default function Navbar() {
   };
 
   const menuItems = [
-    { key: "home", label: t.nav.home },
-    { key: "about", label: t.nav.about },
-    { key: "team", label: t.nav.team },
-    { key: "services", label: t.nav.services },
-    { key: "blog", label: t.nav.blog },
-    { key: "contact", label: t.nav.contact },
+    { key: "home", label: t.nav.home, href: "/#" },
+    { key: "about", label: t.nav.about, href: "/#nosotros" },
+    { key: "team", label: t.nav.team, href: "/#equipo" },
+    { key: "services", label: t.nav.services, href: "/#servicios" },
+    { key: "blog", label: t.nav.blog, href: "/blog" },
+    { key: "contact", label: t.nav.contact, href: "/#contacto" },
   ];
 
   const LanguageToggle = () => (
@@ -116,7 +116,7 @@ export default function Navbar() {
               {menuItems.map((item) => (
                 <a
                   key={item.key}
-                  href={`#${item.key}`}
+                  href={item.href}
                   className="text-secondary hover:text-primary transition-colors duration-200 font-medium"
                 >
                   {item.label}
@@ -179,7 +179,7 @@ export default function Navbar() {
                   {menuItems.map((item, index) => (
                     <motion.a
                       key={item.key}
-                      href={`#${item.key}`}
+                      href={item.href}
                       onClick={closeMobileMenu}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}

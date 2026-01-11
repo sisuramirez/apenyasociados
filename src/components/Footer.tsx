@@ -10,11 +10,12 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const navLinks = [
-    { key: "home", label: t.nav.home },
-    { key: "about", label: t.nav.about },
-    { key: "team", label: t.nav.team },
-    { key: "services", label: t.nav.services },
-    { key: "contact", label: t.nav.contact },
+    { key: "home", label: t?.nav?.home || "Inicio", href: "/#" },
+    { key: "about", label: t?.nav?.about || "Nosotros", href: "/#nosotros" },
+    { key: "team", label: t?.nav?.team || "Equipo", href: "/#equipo" },
+    { key: "services", label: t?.nav?.services || "Servicios", href: "/#servicios" },
+    { key: "blog", label: t?.nav?.blog || "Blog", href: "/blog" },
+    { key: "contact", label: t?.nav?.contact || "Contacto", href: "/#contacto" },
   ];
 
   const currentYear = new Date().getFullYear();
@@ -44,7 +45,7 @@ export default function Footer() {
               {navLinks.map((link) => (
                 <a
                   key={link.key}
-                  href={`#${link.key}`}
+                  href={link.href}
                   className="block text-gray-300 hover:text-[#12ACA4] transition-colors text-sm"
                 >
                   {link.label}
@@ -119,7 +120,7 @@ export default function Footer() {
 
           {/* Developer Credits */}
           <div className="mt-6 pt-4 border-t border-gray-700/50 text-center">
-            <p className="text-gray-500 text-xs">
+            <p className="text-gray-500 text-xs md:text-base">
               {t?.footer?.credits?.prefix || "Diseñado y desarrollado por"}{" "}
               <a
                 href="https://sisuwebs.netlify.app/"

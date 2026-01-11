@@ -54,7 +54,7 @@ function FlipCard({ service, t }: FlipCardProps) {
 
   return (
     <motion.div
-      className="w-full sm:w-[380px] h-[500px] cursor-pointer"
+      className="w-full lg:w-[380px] h-[500px] cursor-pointer"
       style={{ perspective: "1000px" }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -130,7 +130,7 @@ export default function ServicesSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="servicios" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           className="text-3xl lg:text-4xl font-bold text-[#17383F] text-center mb-16"
