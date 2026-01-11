@@ -67,3 +67,13 @@ export const postQuery = `*[_type == "post" && slug.current == $slug][0] {
 }`;
 
 export const postSlugsQuery = `*[_type == "post" && defined(slug.current)][].slug.current`;
+
+// Query for recent posts (limited to 3 for homepage)
+export const recentPostsQuery = `*[_type == "post"] | order(publishedAt desc)[0...3] {
+  _id,
+  title,
+  slug,
+  mainImage,
+  excerpt,
+  publishedAt
+}`;

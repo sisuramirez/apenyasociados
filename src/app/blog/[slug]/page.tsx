@@ -1,34 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
-import { safeFetch, postQuery, postSlugsQuery, isSanityConfigured } from "@/sanity/lib/client";
+import { client, postQuery, postSlugsQuery, isSanityConfigured } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { portableTextComponents } from "@/components/PortableTextComponents";
 import type { Post } from "@/sanity/lib/types";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Required for static export with dynamic routes
-export const dynamicParams = false;
+// Enable ISR with 60 second revalidation
+export const revalidate = 60;
 
-// Generate static params for static export
+// Allow dynamic params for new posts
+export const dynamicParams = true;
+
+// Generate static params for known posts at build time
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  // Always return at least a placeholder for static export to work
-  const placeholderParams = [{ slug: "coming-soon" }];
-
   if (!isSanityConfigured) {
-    return placeholderParams;
+    return [];
   }
 
   try {
-    const slugs = await safeFetch<string[]>(postSlugsQuery);
+    const slugs = await client.fetch<string[]>(postSlugsQuery);
     if (!slugs || slugs.length === 0) {
-      return placeholderParams;
+      return [];
     }
     return slugs.map((slug) => ({ slug }));
   } catch (error) {
     console.error("Error fetching slugs:", error);
-    return placeholderParams;
+    return [];
   }
 }
 
@@ -38,7 +39,9 @@ async function getPost(slug: string): Promise<Post | null> {
   }
 
   try {
-    const post = await safeFetch<Post>(postQuery, { slug });
+    const post = await client.fetch<Post>(postQuery, { slug }, {
+      next: { revalidate: 60 }
+    });
     return post;
   } catch (error) {
     console.error("Error fetching post:", error);
@@ -59,74 +62,22 @@ function formatDate(dateString?: string): string {
   }
 }
 
-// Not found component
-function NotFoundContent() {
-  return (
-    <>
-      <Navbar />
-      <main className="min-h-screen bg-white pt-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center py-20">
-            <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
-              <svg
-                className="w-12 h-12 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <h1 className="text-3xl font-bold text-[#17383F] mb-4">
-              Contenido en preparación
-            </h1>
-            <p className="text-gray-600 max-w-md mx-auto mb-8">
-              Este artículo aún no está disponible. Vuelve pronto para ver
-              nuestro contenido.
-            </p>
-            <Link
-              href="/blog"
-              className="inline-block bg-[#12ACA4] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#0e918a] transition-colors"
-            >
-              Volver al Blog
-            </Link>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
-  );
-}
-
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  let post: Post | null = null;
+  const { slug } = await params;
+  const post = await getPost(slug);
 
-  try {
-    const { slug } = await params;
-    post = await getPost(slug);
-  } catch (error) {
-    console.error("Error in BlogPostPage:", error);
-    post = null;
-  }
-
-  // Show friendly message instead of crashing
   if (!post) {
-    return <NotFoundContent />;
+    notFound();
   }
 
-  const title = post?.title || "Sin título";
-  const publishedAt = post?.publishedAt;
-  const mainImage = post?.mainImage;
-  const body = post?.body;
+  const title = post.title || "Sin título";
+  const publishedAt = post.publishedAt;
+  const mainImage = post.mainImage;
+  const body = post.body;
 
   return (
     <>
@@ -156,18 +107,21 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Post Header */}
           <header className="mb-8">
+            <span className="inline-block px-3 py-1 bg-[#12ACA4]/10 text-[#12ACA4] text-sm font-semibold rounded-full mb-4">
+              Insights
+            </span>
             {publishedAt && (
-              <time className="text-[#12ACA4] font-medium">
+              <time className="block text-gray-500 font-medium mb-2">
                 {formatDate(publishedAt)}
               </time>
             )}
-            <h1 className="text-3xl lg:text-4xl font-bold text-[#17383F] mt-2 mb-6">
+            <h1 className="text-3xl lg:text-4xl font-bold text-[#17383F] leading-tight">
               {title}
             </h1>
           </header>
 
           {/* Main Image */}
-          {mainImage?.asset && (
+          {mainImage?.asset ? (
             <div className="relative w-full h-64 md:h-96 mb-10 rounded-2xl overflow-hidden">
               <Image
                 src={urlFor(mainImage.asset).width(1200).height(600).url()}
@@ -177,11 +131,17 @@ export default async function BlogPostPage({ params }: Props) {
                 priority
               />
             </div>
+          ) : (
+            <div className="w-full h-64 md:h-96 mb-10 rounded-2xl overflow-hidden bg-gradient-to-br from-[#17383F] to-[#12ACA4] flex items-center justify-center">
+              <svg className="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
+            </div>
           )}
 
           {/* Post Body - Portable Text */}
           {body && body.length > 0 ? (
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none prose-headings:text-[#17383F] prose-a:text-[#12ACA4] prose-strong:text-[#17383F]">
               <PortableText
                 value={body}
                 components={portableTextComponents}
