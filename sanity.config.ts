@@ -10,7 +10,7 @@ console.log("Sanity Dataset:", process.env.NEXT_PUBLIC_SANITY_DATASET)
 
 export default defineConfig({
   name: 'default',
-  title: 'AP&N Y Asociados Blog',
+  title: 'Apen & Asociados',
 
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'vdxr2ggf',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',

@@ -12,15 +12,20 @@ export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
         <video
           autoPlay
           loop
           muted
           playsInline
+          controls={false}
+          preload="auto"
           poster={videoPoster.src}
           className="w-full h-full object-cover"
         >
+          {/* MP4 fallback for older iOS versions */}
+          <source src="/assets/animated-people.mp4?v=1.0.0" type="video/mp4" />
+          {/* WebM for modern browsers */}
           <source src="/assets/animated-people.webm?v=1.0.0" type="video/webm" />
         </video>
 
