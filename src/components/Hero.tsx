@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -8,26 +8,75 @@ import videoPoster from "@/assets/video-poster.webp";
 
 export default function Hero() {
   const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Detect mobile devices
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Attempt to play video when it's ready
+    const video = videoRef.current;
+    if (video) {
+      const playVideo = async () => {
+        try {
+          await video.play();
+        } catch (err) {
+          // Autoplay failed, video will show poster
+          console.log("Autoplay prevented:", err);
+        }
+      };
+
+      video.addEventListener("canplay", playVideo);
+      return () => video.removeEventListener("canplay", playVideo);
+    }
+  }, []);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
           controls={false}
-          preload="auto"
+          preload={isMobile ? "metadata" : "auto"}
           poster={videoPoster.src}
-          className="w-full h-full object-cover"
+          onLoadedData={() => setVideoLoaded(true)}
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
+            videoLoaded ? "opacity-100" : "opacity-0"
+          }`}
         >
-          {/* MP4 fallback for older iOS versions */}
-          <source src="/assets/animated-people.mp4?v=1.0.0" type="video/mp4" />
-          {/* WebM for modern browsers */}
-          <source src="/assets/animated-people.webm?v=1.0.0" type="video/webm" />
+          {/* MP4 first for iOS compatibility (iOS doesn't support WebM) */}
+          <source
+            src={isMobile ? "/assets/animated-people-mobile.mp4?v=1.0.1" : "/assets/animated-people.mp4?v=1.0.1"}
+            type="video/mp4"
+          />
+          {/* WebM for modern browsers (better compression) */}
+          <source
+            src={isMobile ? "/assets/animated-people-mobile.webm?v=1.0.1" : "/assets/animated-people.webm?v=1.0.1"}
+            type="video/webm"
+          />
         </video>
+
+        {/* Poster image fallback while video loads */}
+        <div
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 ${
+            videoLoaded ? "opacity-0" : "opacity-100"
+          }`}
+          style={{ backgroundImage: `url(${videoPoster.src})` }}
+        />
 
         {/* Dark Teal Overlay */}
         <div
