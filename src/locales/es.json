@@ -30,11 +30,11 @@
     },
     "vision": {
       "title": "Visión",
-      "text": "Dirigir nuestros esfuerzos, experiencia y conocimientos profesionales hacia nuestros clientes ayudándolos a ser más competitivos, rentables y mejorando continuamente su desarrollo en el mercado global de negocios. Proveer servicios profesionales de alta calidad y prestigio, que satisfaga y exceda las necesidades y expectativas de nuestros clientes, creando un nivel de desarrollo integral para nuestros clientes y para cada miembro de nuestro equipo de profesionales."
+      "text": "Proveer servicios profesionales de alta calidad y prestigio, que satisfaga y exceda las necesidades y expectativas de nuestros clientes, creando un nivel de desarrollo integral para nuestros clientes y para cada miembro de nuestro equipo de profesionales."
     },
     "valores": {
       "title": "Valores",
-      "items": ["Integridad", "Confianza", "Objetividad", "Competencia", "Confidencialidad"]
+      "text": "Nuestros valores son la base de nuestro compromiso con la excelencia y la mejora continua: Integridad, confianza, objetividad, competencia y confidencialidad."
     }
   },
   "international": {
@@ -125,7 +125,7 @@
       },
       "rocio": {
         "name": "Rocío Solís",
-        "role": "Administradora",
+        "role": "Socia de consultoría",
         "bio": "Administradora de Empresas con especialización en ingeniería de servicios, control de calidad y administración de operaciones. Postgrado en Maestría de Recursos Humanos.",
         "credentials": [
           "Leyes laborales y mercantiles",

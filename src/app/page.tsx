@@ -8,7 +8,6 @@ import ServicesSection from "@/components/ServicesSection";
 import LatestNews from "@/components/LatestNews";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 // Enable ISR with 60 second revalidation for the homepage
 export const revalidate = 60;
@@ -26,7 +25,6 @@ export default function Home() {
       <LatestNews />
       <ContactSection />
       <Footer />
-      <FloatingWhatsApp />
     </main>
   );
 }

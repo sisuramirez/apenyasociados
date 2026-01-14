@@ -12,8 +12,7 @@ interface PhilosophyCard {
   key: string;
   image: StaticImageData;
   title: string;
-  content: string | string[];
-  isValues: boolean;
+  content: string;
 }
 
 export default function PhilosophySection() {
@@ -25,21 +24,18 @@ export default function PhilosophySection() {
       image: misionImg,
       title: t.philosophy.mision.title,
       content: t.philosophy.mision.text,
-      isValues: false,
     },
     {
       key: "vision",
       image: visionImg,
       title: t.philosophy.vision.title,
       content: t.philosophy.vision.text,
-      isValues: false,
     },
     {
       key: "valores",
       image: valoresImg,
       title: t.philosophy.valores.title,
-      content: t.philosophy.valores.items,
-      isValues: true,
+      content: t.philosophy.valores.text,
     },
   ];
 
@@ -108,20 +104,9 @@ export default function PhilosophySection() {
               </h3>
 
               {/* Card Description */}
-              {card.isValues ? (
-                <ul className="space-y-2">
-                  {(card.content as string[]).map((item, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <span className="w-2 h-2 rounded-full bg-[#12ACA4] flex-shrink-0" />
-                      <span className="text-gray-600">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-gray-600 leading-relaxed text-center">
-                  {card.content as string}
-                </p>
-              )}
+              <p className="text-gray-600 leading-relaxed text-center">
+                {card.content}
+              </p>
             </motion.div>
           ))}
         </motion.div>

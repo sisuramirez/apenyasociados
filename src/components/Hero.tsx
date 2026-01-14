@@ -112,7 +112,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <a
-              href="#contact"
+              href="#contacto"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
               {t.hero.cta}

@@ -26,15 +26,15 @@
     "title": "Business Philosophy",
     "mision": {
       "title": "Mission",
-      "text": "To direct our efforts, experience, and professional knowledge towards our clients, helping them become more competitive and profitable, and continuously improving their development in the global business market."
+      "text": "Directing our efforts, experience, and professional knowledge towards our clients, helping them to be more competitive, profitable, and continuously improving their development in the global business market."
     },
     "vision": {
       "title": "Vision",
-      "text": "To direct our efforts, experience, and professional knowledge towards our clients, helping them become more competitive and profitable, and continuously improving their development in the global business market. To provide high-quality and prestigious professional services that satisfy and exceed the needs and expectations of our clients, creating an integral level of development for our clients and for each member of our professional team."
+      "text": "To provide high-quality and prestigious professional services that satisfy and exceed the needs and expectations of our clients, creating a level of integral development for our clients and for each member of our professional team."
     },
     "valores": {
       "title": "Values",
-      "items": ["Integrity", "Trust", "Objectivity", "Competence", "Confidentiality"]
+      "text": "Our values are the foundation of our commitment to excellence and continuous improvement: Integrity, trust, objectivity, competence, and confidentiality."
     }
   },
   "international": {
@@ -125,7 +125,7 @@
       },
       "rocio": {
         "name": "Rocío Solís",
-        "role": "Administrator",
+        "role": "Consulting Partner",
         "bio": "Business Administrator specializing in service engineering, quality control, and operations management. Postgraduate degree in Human Resources Management.",
         "credentials": [
           "Labor and commercial law",

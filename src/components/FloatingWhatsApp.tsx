@@ -2,24 +2,17 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useLanguage } from "@/context/LanguageContext";
 
 export default function FloatingWhatsApp() {
-  const { language } = useLanguage();
-
   const handleClick = () => {
-    const message = encodeURIComponent(
-      language === "es"
-        ? "Hola, me gustaría obtener más información sobre los servicios de Apen y Asociados."
-        : "Hello, I would like to get more information about Apen y Asociados services."
-    );
-    window.open(`https://wa.me/50212345678?text=${message}`, "_blank");
+    const message = encodeURIComponent("Estoy interesado en sus servicios");
+    window.open(`https://wa.me/50243865000?text=${message}`, "_blank");
   };
 
   return (
     <motion.button
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:bg-[#128C7E] transition-colors"
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-12 h-12 md:w-14 md:h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:bg-[#128C7E] transition-colors"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, duration: 0.3 }}
@@ -32,7 +25,7 @@ export default function FloatingWhatsApp() {
 
       {/* WhatsApp Icon */}
       <svg
-        className="w-7 h-7 text-white relative z-10"
+        className="w-6 h-6 md:w-7 md:h-7 text-white relative z-10"
         fill="currentColor"
         viewBox="0 0 24 24"
       >
