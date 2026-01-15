@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   // NOTE: 'output: export' is commented out because it's incompatible with Sanity Studio.
@@ -13,6 +14,8 @@ const nextConfig: NextConfig = {
     // Required for Sanity Studio UI components
     styledComponents: true,
   },
+  // Fix workspace root detection to use this project's directory
+  outputFileTracingRoot: path.join(__dirname, "./"),
 };
 
 export default nextConfig;

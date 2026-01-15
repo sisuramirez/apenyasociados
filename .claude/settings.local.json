@@ -9,7 +9,15 @@
       "Bash(npx tsc:*)",
       "Bash(npm run build:*)",
       "Bash(npm install:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(ffprobe:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(brew list:*)",
+      "Bash(brew install:*)",
+      "Bash(ls:*)"
     ]
   }
 }

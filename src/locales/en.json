@@ -149,7 +149,19 @@
       "servicePlaceholder": "Select a service",
       "date": "Preferred Date",
       "time": "Preferred Time",
-      "submit": "Request an appointment"
+      "message": "Message (Optional)",
+      "messagePlaceholder": "Tell us more about your inquiry...",
+      "submit": "Request an appointment",
+      "sending": "Sending...",
+      "success": "Your request has been sent successfully. Check your email for confirmation.",
+      "error": "An error occurred while sending your request. Please try again.",
+      "requiredFields": "Please fill in all required fields."
+    },
+    "successState": {
+      "title": "Thank you",
+      "message": "Please check your email.",
+      "regards": "Best regards,",
+      "team": "The Apen y Asociados Team"
     },
     "services": {
       "audit": "Financial Audit",

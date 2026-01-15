@@ -149,7 +149,19 @@
       "servicePlaceholder": "Seleccione un servicio",
       "date": "Fecha Preferida",
       "time": "Hora Preferida",
-      "submit": "Solicitar una cita"
+      "message": "Mensaje (Opcional)",
+      "messagePlaceholder": "Cuéntenos más sobre su consulta...",
+      "submit": "Solicitar una cita",
+      "sending": "Enviando...",
+      "success": "Su solicitud ha sido enviada exitosamente. Revise su correo electrónico para la confirmación.",
+      "error": "Ocurrió un error al enviar su solicitud. Por favor intente nuevamente.",
+      "requiredFields": "Por favor complete todos los campos requeridos."
+    },
+    "successState": {
+      "title": "Gracias",
+      "message": "Por favor revisa tu correo.",
+      "regards": "Atentamente,",
+      "team": "El Equipo de Apen y Asociados"
     },
     "services": {
       "audit": "Auditoría Financiera",
