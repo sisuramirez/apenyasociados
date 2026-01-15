@@ -17,7 +17,7 @@ interface FormData {
 }
 
 export default function ContactSection() {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -40,12 +40,8 @@ export default function ContactSection() {
   };
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(
-      language === "es"
-        ? `Hola, me gustaría agendar una cita.\n\nNombre: ${formData.name}\nServicio: ${formData.service}\nFecha: ${formData.date}\nHora: ${formData.time}`
-        : `Hello, I would like to schedule an appointment.\n\nName: ${formData.name}\nService: ${formData.service}\nDate: ${formData.date}\nTime: ${formData.time}`
-    );
-    window.open(`https://wa.me/50212345678?text=${message}`, "_blank");
+    const message = encodeURIComponent("Estoy interesado en sus servicios");
+    window.open(`https://wa.me/50243865000?text=${message}`, "_blank");
   };
 
   const services = [

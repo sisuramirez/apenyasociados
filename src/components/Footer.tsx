@@ -82,15 +82,19 @@ export default function Footer() {
                 <span>info@apenyasociados.com</span>
               </a>
               <a
-                href="tel:+50212345678"
-                className="flex items-center gap-2 text-gray-300 hover:text-[#12ACA4] transition-colors text-sm"
+                href="tel:+50243865000"
+                className="flex items-start gap-2 text-gray-300 hover:text-[#12ACA4] transition-colors text-sm"
               >
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <span>+502 1234 5678</span>
+                <Phone className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <span>
+                  <strong>{t.footer.phoneLabel}:</strong> {t.footer.phone}
+                </span>
               </a>
               <div className="flex items-start gap-2 text-gray-300 text-sm">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span>{t.footer.address}</span>
+                <span>
+                  <strong>{t.footer.addressLabel}:</strong> {t.footer.address}
+                </span>
               </div>
             </div>
           </div>

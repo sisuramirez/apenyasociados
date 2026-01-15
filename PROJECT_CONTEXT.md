@@ -150,6 +150,20 @@ screens: {
 4. **Environment Variables**
    - Confirmed `.env.local` uses `NEXT_PUBLIC_` prefix for client-side access
 
+5. **Vercel Build: useEffectEvent Error**
+   - Pinned `react` and `react-dom` to exact version `19.0.0` (removed `^` prefix)
+   - Added `overrides` section in `package.json` to force all sub-dependencies to use stable React 19:
+     ```json
+     "overrides": {
+       "react": "$react",
+       "react-dom": "$react-dom"
+     }
+     ```
+   - Regenerated `package-lock.json` with `npm install --legacy-peer-deps`
+
+6. **Studio Route Production-Ready**
+   - Added `export const dynamic = 'force-dynamic'` to prevent static generation
+
 ---
 
 ## Coding Guidelines

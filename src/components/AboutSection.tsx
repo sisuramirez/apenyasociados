@@ -7,15 +7,11 @@ import { useLanguage } from "@/context/LanguageContext";
 import financialPeople from "@/assets/financial-people.webp";
 
 export default function AboutSection() {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
-  const whatsappMessage = encodeURIComponent(
-    language === "es"
-      ? "Hola, me gustaría agendar una reunión de consultoría con Apen y Asociados."
-      : "Hello, I would like to schedule a consulting meeting with Apen y Asociados."
-  );
+  const whatsappMessage = encodeURIComponent("Estoy interesado en sus servicios");
 
-  const whatsappLink = `https://wa.me/yournumber?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/50243865000?text=${whatsappMessage}`;
 
   return (
     <section id="about" className="py-20 bg-white">
