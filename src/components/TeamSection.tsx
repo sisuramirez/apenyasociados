@@ -48,7 +48,7 @@ function TeamCard({ member, data, onExpand }: TeamCardProps) {
           src={member.image}
           alt={data.name}
           fill
-          className="object-cover object-top transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
+          className="object-cover object-[center_15%] transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
         />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#17383F]/90 via-[#17383F]/20 to-transparent" />
@@ -93,7 +93,7 @@ function ProfileModal({ member, data, onClose }: ProfileModalProps) {
 
       {/* Modal Content */}
       <motion.div
-        className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden"
+        className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto md:overflow-hidden"
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
@@ -110,17 +110,17 @@ function ProfileModal({ member, data, onClose }: ProfileModalProps) {
 
         <div className="flex flex-col md:flex-row">
           {/* Image Section */}
-          <div className="relative w-full md:w-2/5 h-64 md:h-auto md:min-h-[500px]">
+          <div className="relative w-full h-[550px] md:w-2/5 md:h-auto md:min-h-[500px]">
             <Image
               src={member.image}
               alt={data.name}
               fill
-              className="object-cover object-top"
+              className="object-cover object-[center_15%] md:object-top"
             />
           </div>
 
           {/* Content Section */}
-          <div className="flex-1 p-8 overflow-y-auto max-h-[60vh] md:max-h-[500px]">
+          <div className="flex-1 p-8 md:overflow-y-auto md:max-h-[500px]">
             <div className="mb-6">
               <h2 className="text-3xl font-bold text-[#17383F] mb-2">
                 {data.name}
