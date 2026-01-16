@@ -1,23 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Award, Briefcase, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-import marlonImg from "@/assets/team-marlon.webp";
-import rocioImg from "@/assets/team-rocio.webp";
-
 interface TeamMember {
   key: "marlon" | "rocio";
-  image: StaticImageData;
+  image: string;
   credentialType: "accreditations" | "experience";
 }
 
 const teamMembers: TeamMember[] = [
-  { key: "marlon", image: marlonImg, credentialType: "accreditations" },
-  { key: "rocio", image: rocioImg, credentialType: "experience" },
+  { key: "marlon", image: "/assets/marlon-apen.webp", credentialType: "accreditations" },
+  { key: "rocio", image: "/assets/rocio-solis.webp", credentialType: "experience" },
 ];
 
 interface MemberData {

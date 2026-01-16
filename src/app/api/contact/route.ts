@@ -122,7 +122,7 @@ const getClientEmailTemplate = (data: ContactFormData): string => {
           <tr>
             <td style="background-color: ${COLORS.secondary}; padding: 30px 40px; text-align: center;">
               <!-- Logo -->
-              <img src="https://apenyasociados.com/logo-white.png" alt="Apen y Asociados" height="60" style="height: 60px; width: auto; max-width: 200px;" />
+              <img src="https://apenyasociados.com/logo-white.png" alt="Apen y Asociados" height="60" style="height: 60px; width: auto;" />
               <p style="color: ${COLORS.primary}; font-size: 14px; margin: 10px 0 0 0; letter-spacing: 1px;">
                 ${isSpanish ? "AUDITORES Y CONSULTORES" : "AUDITORS & CONSULTANTS"}
               </p>
