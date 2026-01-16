@@ -103,7 +103,7 @@ function ProfileModal({ member, data, onClose }: ProfileModalProps) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="fixed top-4 right-4 z-50 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-colors hover:bg-gray-100"
+          className="fixed md:absolute top-4 right-4 z-50 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-colors hover:bg-gray-100"
         >
           <X className="w-5 h-5 text-gray-700" />
         </button>
