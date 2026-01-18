@@ -1,12 +1,12 @@
 # PROJECT_CONTEXT.md
 
-> **Purpose**: This file serves as long-term memory for AI assistants working on this project. Read this file at the start of every session to maintain context and avoid hallucinations.
+> **Purpose**: This file serves as long-term memory for developers working on this project. Read this file at the start of every session to maintain context and avoid hallucinations.
 
 ---
 
 ## Project Overview
 
-**Project Name**: AP&N Y Asociados
+**Project Name**: Apen Y Asociados
 **Description**: Corporate website for a legal/consulting firm with blog functionality powered by Sanity CMS
 **Repository**: Local development at `/Users/sisu/Documents/sisucorp/apenyasociados`
 
@@ -243,7 +243,7 @@ npm run lint         # Run ESLint
 
 ---
 
-## AI Assistant Instructions
+## Developer Instructions
 
 1. **Always read this file first** at the start of each session
 2. **Verify file existence** before suggesting edits

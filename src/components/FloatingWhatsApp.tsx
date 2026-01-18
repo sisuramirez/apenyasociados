@@ -1,9 +1,17 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 export default function FloatingWhatsApp() {
+  const pathname = usePathname();
+
+  // Hide WhatsApp button in Sanity Studio
+  if (pathname?.startsWith("/studio")) {
+    return null;
+  }
+
   const handleClick = () => {
     const message = encodeURIComponent("Estoy interesado en sus servicios");
     window.open(`https://wa.me/50243865000?text=${message}`, "_blank");
