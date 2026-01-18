@@ -1,29 +1,45 @@
 "use client";
 
+import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process: () => void;
+      };
+    };
+  }
+}
+
 interface InstagramEmbedProps {
   url: string;
 }
 
 export default function InstagramEmbed({ url }: InstagramEmbedProps) {
-  // Clean the URL and ensure it has the /embed suffix
-  const cleanUrl = url
-    .replace(/\/$/, "") // Remove trailing slash
-    .replace(/\/embed$/, ""); // Remove /embed if already present
+  // Clean the URL (remove trailing slash)
+  const cleanUrl = url.replace(/\/$/, "");
 
-  const embedUrl = `${cleanUrl}/embed`;
+  useEffect(() => {
+    // Check if Instagram embed script is already loaded
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    } else {
+      // Dynamically load the Instagram embed script
+      const script = document.createElement("script");
+      script.src = "https://www.instagram.com/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, [url]);
 
   return (
     <div className="flex justify-center my-8">
-      <iframe
-        src={embedUrl}
-        width={400}
-        height={520}
-        frameBorder={0}
-        scrolling="no"
-        allowTransparency={true}
-        allow="encrypted-media"
-        title="Instagram embed"
-        className="border-0 rounded-lg shadow-md"
+      <blockquote
+        className="instagram-media"
+        data-instgrm-captioned
+        data-instgrm-permalink={cleanUrl}
+        data-instgrm-version="14"
       />
     </div>
   );
