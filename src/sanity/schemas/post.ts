@@ -209,6 +209,32 @@ export const blockContent = {
         },
       ],
     },
+    // INSTAGRAM EMBED BLOCK
+    {
+      name: "instagramEmbed",
+      type: "object",
+      title: "Instagram Embed",
+      fields: [
+        {
+          name: "url",
+          type: "url",
+          title: "Instagram URL",
+          description: "URL del post o reel de Instagram (ej: https://www.instagram.com/reel/DSX7WM7DES3/)",
+          validation: (Rule: { required: () => unknown }) => Rule.required(),
+        },
+      ],
+      preview: {
+        select: {
+          url: "url",
+        },
+        prepare({ url }: { url?: string }) {
+          return {
+            title: "Instagram Embed",
+            subtitle: url || "No URL",
+          };
+        },
+      },
+    },
   ],
 };
 

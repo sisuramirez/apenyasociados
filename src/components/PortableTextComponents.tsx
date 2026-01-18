@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
+import InstagramEmbed from "./InstagramEmbed";
 
 // Custom Image Component with Alignment Support
 interface ImageValue {
@@ -54,10 +55,23 @@ function PortableImage({ value }: { value: ImageValue }) {
   );
 }
 
+// Instagram Embed Component for Portable Text
+interface InstagramEmbedValue {
+  url: string;
+}
+
+function PortableInstagramEmbed({ value }: { value: InstagramEmbedValue }) {
+  if (!value?.url) {
+    return null;
+  }
+  return <InstagramEmbed url={value.url} />;
+}
+
 // Export the complete portable text components configuration
 export const portableTextComponents: PortableTextComponents = {
   types: {
     image: PortableImage,
+    instagramEmbed: PortableInstagramEmbed,
   },
   marks: {
     link: ({ value, children }) => {
